@@ -1,5 +1,6 @@
 package com.pragmatic.hrm;
 
+import com.pragmatic.selenium.support.Button;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -58,7 +59,31 @@ public class LoginTest {
 
         String welcomeMessage = driver.findElement(By.id("welcome")).getText();
         Assert.assertEquals(welcomeMessage, "Welcome Admin");
+    }
 
+ @Test()
+    public void testLoginWithValidCredentialsWithButtonSupportClass()  {
+        //Type username
+        driver.findElement(By.id("txtUsername")).sendKeys("Admin");
+
+        //Type password
+        driver.findElement(By.id("txtPassword")).sendKeys("Ptl@#321");
+
+        //Proceed only if the button is enabled. Else fail the cases
+        WebElement loginButtonElement = driver.findElement(By.id("btnLogin"));
+
+     Button loginButton = new Button(loginButtonElement);
+
+        Assert.assertTrue(loginButton.isEnabled());
+
+        //Click login button
+        loginButton.click();
+
+        //Verify if user has logged into the system e.g check welcome message
+//        Thread.sleep(10000); //NOT efficient. NEVER USE
+
+        String welcomeMessage = driver.findElement(By.id("welcome")).getText();
+        Assert.assertEquals(welcomeMessage, "Welcome Admin");
     }
 
     @Test(groups = {"regression"})
