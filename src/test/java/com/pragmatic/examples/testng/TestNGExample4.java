@@ -2,7 +2,7 @@ package com.pragmatic.examples.testng;
 
 import org.testng.annotations.Test;
 
-public class TestNGExampleTemplate {
+public class TestNGExample4 {
 
 
     @Test
@@ -15,13 +15,14 @@ public class TestNGExampleTemplate {
         System.out.println("TestNGExample1.testMethod1");
     }
 
-    @Test
-    public void testMethod2(){
+    @Test(timeOut = 1000)
+    public void testMethod2() throws InterruptedException {
         System.out.println("TestNGExample1.testMethod2");
+        Thread.sleep(2000);
     }
     
 
-    @Test
+    @Test(enabled = false)
     public void testMethod4(){
         System.out.println("TestNGExample1.testMethod4");
     }

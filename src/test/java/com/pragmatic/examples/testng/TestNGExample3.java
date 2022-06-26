@@ -2,7 +2,7 @@ package com.pragmatic.examples.testng;
 
 import org.testng.annotations.Test;
 
-public class TestNGExampleTemplate {
+public class TestNGExample3 {
 
 
     @Test
@@ -15,7 +15,7 @@ public class TestNGExampleTemplate {
         System.out.println("TestNGExample1.testMethod1");
     }
 
-    @Test
+    @Test (invocationCount = 3)
     public void testMethod2(){
         System.out.println("TestNGExample1.testMethod2");
     }

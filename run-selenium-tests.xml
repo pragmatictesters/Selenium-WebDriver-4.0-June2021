@@ -1,0 +1,30 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="selenium-test-suite" >
+
+    <test name="test1" enabled="false">
+        <classes>
+            <class name="com.pragmatic.examples.testng.TestNGExample1"/>
+            <class name="com.pragmatic.examples.testng.TestNGExample2"/>
+            <class name="com.pragmatic.examples.testng.TestNGExample3"/>
+        </classes>
+
+    </test>
+
+    <test name="test2" enabled="false">
+
+        <packages>
+            <package name="com.pragmatic.examples.testng"/>
+        </packages>
+    </test>
+
+    <test name="test3" parallel="classes"  thread-count="3" >
+
+        <packages>
+            <package name="com.pragmatic.examples.testng"/>
+        </packages>
+
+    </test>
+
+
+</suite>

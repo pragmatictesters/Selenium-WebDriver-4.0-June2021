@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="ptl-tests">
+
+    <test name="login-tests" >
+
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="com.pragmatic.hrm.LoginTest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,2 +1,4 @@
-package com.pragmatic.examples;public class MaximizeBrowserWindow {
+package com.pragmatic.examples;
+
+public class MaximizeBrowserWindow {
 }

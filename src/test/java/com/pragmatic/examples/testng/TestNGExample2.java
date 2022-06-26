@@ -2,20 +2,20 @@ package com.pragmatic.examples.testng;
 
 import org.testng.annotations.Test;
 
-public class TestNGExample1 {
+public class TestNGExample2 {
 
 
-    @Test (priority = 2)
+    @Test(dependsOnMethods = {"testMethod1", "testMethod5"})
     public void testMethod3(){
         System.out.println("TestNGExample1.testMethod3");
     }
 
-    @Test (priority = 1)
+    @Test
     public void testMethod1(){
         System.out.println("TestNGExample1.testMethod1");
     }
 
-    @Test (priority = 3)
+    @Test
     public void testMethod2(){
         System.out.println("TestNGExample1.testMethod2");
     }

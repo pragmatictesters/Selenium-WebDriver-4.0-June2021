@@ -2,7 +2,7 @@ package com.pragmatic.examples.testng;
 
 import org.testng.annotations.Test;
 
-public class TestNGExample2 {
+public class TestNGExampleTemplate {
 
 
     @Test

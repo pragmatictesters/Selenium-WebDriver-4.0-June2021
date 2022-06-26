@@ -1,2 +1,4 @@
-package com.pragmatic.hrm.tests;public class UpdateEmployeeTest {
+package com.pragmatic.hrm.tests;
+
+public class UpdateEmployeeTest {
 }
