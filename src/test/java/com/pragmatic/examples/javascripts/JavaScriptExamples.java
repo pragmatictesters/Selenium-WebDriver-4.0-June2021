@@ -1,4 +1,4 @@
-package com.pragmatic.examples;
+package com.pragmatic.examples.javascripts;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Alert;
