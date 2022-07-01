@@ -1,4 +1,4 @@
-package com.pragmatic.selenium.support;
+package com.pragmatic.selenium.exclude;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
@@ -15,6 +15,6 @@ public class ByPartialButtonText extends By {
 
     @Override
     public List<WebElement> findElements(SearchContext context) {
-        return context.findElements(By.xpath(String.format("//button[contains(text(),'%s')]", partialText)));
+        return context.findElements(By.xpath(String.format("//button[contains(text(),'%s')]",partialText )));
     }
 }

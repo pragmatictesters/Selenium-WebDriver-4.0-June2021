@@ -41,9 +41,8 @@ public class CustomLocatorsExample {
 
 
     @Test
-    public void testAlertByLocatingButtonWithText(){
-        //Click the simple alert button
-        //Locate the button by exact button text
+    public void locateElementByButtonText(){
+        //Click the simple alert button. Locate element by button text
         driver.findElement(new ByButtonText("Simple Alert")).click();
 
         //Switch to the alert
@@ -61,11 +60,43 @@ public class CustomLocatorsExample {
 
 
     @Test
-    public void testLocateButtonWithPartialText(){
+    public void locateButtonByPartialText(){
         driver.findElement(new ByPartialButtonText("Confirm Alert")).click();
         Assert.assertEquals(driver.switchTo().alert().getText(), "Press a button!");
         driver.switchTo().alert().dismiss();
     }
+
+    @Test
+    public void testConfirmationOK(){
+        driver.findElement(By.xpath("//button[contains(text(),'Confirm Alert')]")).click();
+        driver.switchTo().alert().accept();
+        Assert.assertEquals(driver.findElement(By.id("confirm-demo")).getText(), "Confirmed.");
+    }
+
+    @Test
+    public void testConfirmationCancel(){
+        driver.findElement(By.xpath("//button[contains(text(),'Confirm Alert')]")).click();
+        driver.switchTo().alert().dismiss();
+        Assert.assertEquals(driver.findElement(By.id("confirm-demo")).getText(), "Rejected!");
+    }
+
+    @Test
+    public void testPrompt(){
+        String name = "Selenium";
+        driver.findElement(By.xpath("//button[contains(text(),'Prompt Alert')]")).click();
+        driver.switchTo().alert().sendKeys(name);
+        driver.switchTo().alert().accept();
+        Assert.assertEquals(driver.findElement(By.id("confirm-demo")).getText(), name);
+    }
+
+    @Test
+    public void testTimingAlert() throws InterruptedException {
+        driver.findElement(By.xpath("//button[contains(text(),'Timing Alert')]")).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.alertIsPresent());
+        driver.switchTo().alert().accept();
+    }
+
 
 
 }

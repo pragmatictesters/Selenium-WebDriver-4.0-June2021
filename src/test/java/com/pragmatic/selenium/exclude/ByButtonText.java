@@ -1,4 +1,4 @@
-package com.pragmatic.selenium.support;
+package com.pragmatic.selenium.exclude;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
@@ -15,7 +15,6 @@ public class ByButtonText extends By {
 
     @Override
     public List<WebElement> findElements(SearchContext context) {
-        return context.findElements(By.xpath(String.format("//button[text()='%s']",this.buttonText )));
-        //return context.findElements(By.xpath(String.format("//span[@class='dx-button-text'][text()='%s']",this.buttonText )));
+        return context.findElements(By.xpath(String.format("//button[text()='%s']",buttonText )));
     }
 }
