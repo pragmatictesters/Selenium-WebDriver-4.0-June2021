@@ -1,4 +1,4 @@
-package com.pragmatic.examples;
+package com.pragmatic.examples.browsers;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.checkerframework.checker.units.qual.C;
