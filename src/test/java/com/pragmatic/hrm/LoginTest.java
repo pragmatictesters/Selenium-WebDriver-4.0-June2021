@@ -1,6 +1,7 @@
 package com.pragmatic.hrm;
 
 import com.pragmatic.selenium.support.Button;
+import com.pragmatic.selenium.support.ButtonPragmatic;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -47,12 +48,18 @@ public class LoginTest {
         driver.findElement(By.id("txtPassword")).sendKeys("Ptl@#321");
 
         //Proceed only if the button is enabled. Else fail the cases
-        WebElement loginButton = driver.findElement(By.id("btnLogin"));
+        WebElement loginButtonElement = driver.findElement(By.id("btnLogin"));
+
+        //Creating a custom abstraction for button
+        Button loginButton = new Button(loginButtonElement);
 
         Assert.assertTrue(loginButton.isEnabled());
+        loginButton.click();
 
-        //Click login button
-        driver.findElement(By.id("btnLogin")).click();
+//        Assert.assertTrue(loginButtonElement.isEnabled());
+//
+//        //Click login button
+//        driver.findElement(By.id("btnLogin")).click();
 
         //Verify if user has logged into the system e.g check welcome message
 //        Thread.sleep(10000); //NOT efficient. NEVER USE
@@ -72,12 +79,12 @@ public class LoginTest {
         //Proceed only if the button is enabled. Else fail the cases
         WebElement loginButtonElement = driver.findElement(By.id("btnLogin"));
 
-     Button loginButton = new Button(loginButtonElement);
+     ButtonPragmatic loginButtonPragmatic = new ButtonPragmatic(loginButtonElement);
 
-        Assert.assertTrue(loginButton.isEnabled());
+        Assert.assertTrue(loginButtonPragmatic.isEnabled());
 
         //Click login button
-        loginButton.click();
+        loginButtonPragmatic.click();
 
         //Verify if user has logged into the system e.g check welcome message
 //        Thread.sleep(10000); //NOT efficient. NEVER USE

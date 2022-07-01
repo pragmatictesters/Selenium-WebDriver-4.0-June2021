@@ -1,10 +1,13 @@
 package com.pragmatic.hrm;
 
 import com.github.javafaker.Faker;
+import com.pragmatic.selenium.support.Check;
+import com.pragmatic.selenium.support.UnexpectedCheckbox;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Action;
@@ -102,14 +105,20 @@ public class AddEmployeesTest {
      * Create a new employee with login credentials - enabled
      */
     @Test
-    public void testAddNewEmployeeWithLoginCredentialsEnabled() {
+    public void testAddNewEmployeeWithLoginCredentialsEnabled() throws UnexpectedCheckbox {
         String lastName = faker.name().lastName();
         String firstName = faker.name().firstName();
         //Type firstname
         driver.findElement(By.id("firstName")).sendKeys(firstName);
         //Type lastname
         driver.findElement(By.id("lastName")).sendKeys(lastName);
-        driver.findElement(By.id("chkLogin")).click(); //Click the checkbox
+
+        WebElement checkboxElement = driver.findElement(By.id("chkLogin"));
+
+        Check checkbox = new Check(checkboxElement);
+
+        checkbox.check(); //Click the checkbox
+
         driver.findElement(By.id("user_name")).sendKeys(String.format("%s.%s", firstName, lastName));
         driver.findElement(By.id("user_password")).sendKeys("Ptl@#321");
         driver.findElement(By.id("re_password")).sendKeys("Ptl@#321");
@@ -120,6 +129,7 @@ public class AddEmployeesTest {
 
         //Click Save button
         driver.findElement(By.id("btnSave")).click();
+
 
         //Assert success
         Assert.assertEquals(driver.findElement(By.id("personal_txtEmpFirstName")).getAttribute("value"), firstName);

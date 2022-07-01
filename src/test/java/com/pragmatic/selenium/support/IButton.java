@@ -7,4 +7,6 @@ public interface IButton {
     public boolean isEnabled();
 
     public boolean isDisplayed();
+
+    public String getText();
 }

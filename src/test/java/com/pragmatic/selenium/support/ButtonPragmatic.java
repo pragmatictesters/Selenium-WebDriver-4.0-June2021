@@ -3,10 +3,10 @@ package com.pragmatic.selenium.support;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WrapsElement;
 
-public class Button implements IButton, WrapsElement {
+public class ButtonPragmatic implements IButton, WrapsElement {
     private final WebElement button;
 
-    public Button(WebElement button) {
+    public ButtonPragmatic(WebElement button) {
         this.button = button;
     }
 
@@ -16,7 +16,8 @@ public class Button implements IButton, WrapsElement {
     }
 
     public boolean isEnabled() {
-        return  button.isEnabled();
+        return button.isEnabled();
+
     }
 
     @Override
@@ -26,7 +27,14 @@ public class Button implements IButton, WrapsElement {
 
     @Override
     public String getText() {
-        return button.getText();
+        String buttonLabel;
+
+        if (button.getText().length()>0){
+            buttonLabel = button.getText();
+        } else {
+            buttonLabel= button.getAttribute("value");
+        }
+        return buttonLabel;
     }
 
     public void click() {
