@@ -117,7 +117,7 @@ public class AddEmployeesTest {
 
         WebElement checkboxElement = driver.findElement(By.id("chkLogin"));
 
-        Check checkbox = new Check(checkboxElement);
+        Check checkbox = new Check(driver.findElement(By.id("firstName")));
 
         checkbox.check(); //Click the checkbox
 

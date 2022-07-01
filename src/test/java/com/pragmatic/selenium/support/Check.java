@@ -11,10 +11,10 @@ public class Check implements ICheckbox, WrapsElement {
         //Should do a validation
         String typeName = checkboxElement.getAttribute("type");
         String tagName = checkboxElement.getTagName();
-        if(typeName.equalsIgnoreCase("checkbox")) {
+        if(null != tagName && "input".equalsIgnoreCase(tagName)  && "checkbox".equalsIgnoreCase(typeName)) {
             this.checkboxElement= checkboxElement;
         } else  {
-            throw new UnexpectedCheckboxException();
+            throw new UnexpectedCheckboxException(tagName, typeName);
         }
 
 
