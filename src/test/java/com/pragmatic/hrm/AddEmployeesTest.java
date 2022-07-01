@@ -2,7 +2,7 @@ package com.pragmatic.hrm;
 
 import com.github.javafaker.Faker;
 import com.pragmatic.selenium.support.Check;
-import com.pragmatic.selenium.support.UnexpectedCheckbox;
+import com.pragmatic.selenium.support.UnexpectedCheckboxException;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -10,15 +10,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.Collections;
 
 public class AddEmployeesTest {
@@ -105,7 +107,7 @@ public class AddEmployeesTest {
      * Create a new employee with login credentials - enabled
      */
     @Test
-    public void testAddNewEmployeeWithLoginCredentialsEnabled() throws UnexpectedCheckbox {
+    public void testAddNewEmployeeWithLoginCredentialsEnabled() {
         String lastName = faker.name().lastName();
         String firstName = faker.name().firstName();
         //Type firstname
@@ -132,6 +134,7 @@ public class AddEmployeesTest {
 
 
         //Assert success
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(By.id("personal_txtEmpFirstName")));
         Assert.assertEquals(driver.findElement(By.id("personal_txtEmpFirstName")).getAttribute("value"), firstName);
         Assert.assertEquals(driver.findElement(By.id("personal_txtEmpFirstName")).getAttribute("value"), firstName);
 

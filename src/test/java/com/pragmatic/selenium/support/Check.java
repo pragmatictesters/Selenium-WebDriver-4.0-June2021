@@ -2,12 +2,11 @@ package com.pragmatic.selenium.support;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WrapsElement;
-import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 
 public class Check implements ICheckbox, WrapsElement {
     private  WebElement checkboxElement;
 
-    public Check(WebElement checkboxElement) throws UnexpectedCheckbox {
+    public Check(WebElement checkboxElement) throws UnexpectedCheckboxException {
         this.checkboxElement = null;
         //Should do a validation
         String typeName = checkboxElement.getAttribute("type");
@@ -15,7 +14,7 @@ public class Check implements ICheckbox, WrapsElement {
         if(typeName.equalsIgnoreCase("checkbox")) {
             this.checkboxElement= checkboxElement;
         } else  {
-            throw new UnexpectedCheckbox();
+            throw new UnexpectedCheckboxException();
         }
 
 
