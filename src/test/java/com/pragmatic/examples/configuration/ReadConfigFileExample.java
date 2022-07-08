@@ -1,4 +1,4 @@
-package com.pragmatic.configuration;
+package com.pragmatic.examples.configuration;
 
 
 import java.io.FileInputStream;
