@@ -1,5 +1,7 @@
 package com.pragmatic.hrm.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +11,7 @@ public class HRMLoginPage {
 
     //Define the elements for the page
     private WebDriver driver;
+    private Logger logger = LogManager.getLogger();
 
     //Username element
     @FindBy(id = "txtUsername")
@@ -28,6 +31,13 @@ public class HRMLoginPage {
     WebElement msgError;
 
     public HRMLoginPage(WebDriver driver) {
+
+        logger.trace("I am from Login page ");
+        logger.debug("I am from Login page ");
+        logger.info("I am from Login page ");
+        logger.warn("I am from Login page ");
+        logger.error("I am from Login page ");
+        logger.fatal("I am from Login page ");
         PageFactory.initElements(driver, this); //Magic code line
     }
 
