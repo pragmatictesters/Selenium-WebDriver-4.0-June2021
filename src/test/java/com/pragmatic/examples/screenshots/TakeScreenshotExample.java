@@ -27,9 +27,11 @@ public class TakeScreenshotExample {
 
     @Test
     public void takeElementScreenshot() throws IOException {
+        System.out.println("TakeScreenshotExample.takeElementScreenshot");
         WebDriver driver = new ChromeDriver();
         driver.get(BASE_URL);
         driver.findElement(By.id("txtUsername")).sendKeys("Admin");
+        System.out.println("Value in element is " + driver.findElement(By.id("txtUsername")).getAttribute("value"));
         driver.findElement(By.id("txtPassword")).sendKeys("Ptl@#321");
         driver.findElement(By.id("txtPassword")).submit();
 
@@ -37,6 +39,7 @@ public class TakeScreenshotExample {
         //Taking screenshot to a File
         takeElementScreenshot(menuElement, "menu");
         driver.quit();
+        System.out.println("Test is completed ");
 
     }
 
