@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="warn" name="MyApp" packages="">
+<Configuration status="error">
     <Appenders>
-        <File name="MyFile" fileName="logs/myapp.log">
+        <Console name="LogToConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <File name="Log_TestLogs_ToFile" fileName="logs/selenium-test-logs-${date:yyyy-MM-ddHHmmssSSS}.log">
             <PatternLayout>
-                <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
             </PatternLayout>
         </File>
+        <File name="Log_PageLogs_ToFile" fileName="logs/selenium-pages-logs-${date:yyyy-MM-ddHHmmssSSS}.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+        </File>
+
     </Appenders>
+
     <Loggers>
-        <Root level="debug">
-            <AppenderRef ref="MyFile"/>
+        <Logger name="com.pragmatic.hrm.tests" level="info" additivity="false">
+            <AppenderRef ref="Log_TestLogs_ToFile"/>
+        </Logger>
+        <Logger name="com.pragmatic.hrm" level="debug" additivity="false">
+            <AppenderRef ref="LogToConsole"/>
+        </Logger>
+        <Logger name="com.pragmatic.hrm.pages" level="error" additivity="false">
+            <AppenderRef ref="Log_PageLogs_ToFile"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="Log_TestLogs_ToFile"/>
+            <AppenderRef ref="Log_PageLogs_ToFile"/>
+            <AppenderRef ref="LogToConsole"/>
         </Root>
     </Loggers>
 </Configuration>
