@@ -17,7 +17,8 @@ public class ByChainedExample {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("http://hrm.pragmatictestlabs.com");
-        driver.findElement(new ByChained(By.id("frmLogin"), By.className("textInputContainer"), By.name("txtUsername"))).sendKeys("Admin");
+        //driver.findElement(new ByChained(By.id("frmLogin"), By.className("textInputContainer"), By.name("txtUsername"))).sendKeys("Admin");
+        driver.findElement(new ByChained(By.id("frmLogin"), By.className("textInputContainer"), By.tagName("input"))).sendKeys("Admin");
         driver.findElement(By.id("txtPassword")).sendKeys("Ptl@#321");
         driver.findElement(By.id("txtPassword")).sendKeys(Keys.ENTER);
         String welcomeMessage = driver.findElement(By.id("welcome")).getText();

@@ -23,6 +23,7 @@ public class ByAllExample {
         driver.get("http://hrm.pragmatictestlabs.com");
         List<WebElement> elements = driver.findElements(new ByAll(By.id("txtUsername"), By.name("txtPassword")));
         Assert.assertEquals(elements.size(),2);
+        Assert.assertTrue(elements.size()>1 && elements.size()<3);
         driver.quit();
     }
 }
