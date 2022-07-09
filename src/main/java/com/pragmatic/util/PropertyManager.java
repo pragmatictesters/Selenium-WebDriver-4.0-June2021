@@ -14,11 +14,7 @@ public class PropertyManager {
     private static String ADMIN_USERNAME;
     private static String ADMIN_PASSWORD;
 
-    public PropertyManager() {
-
-    }
-
-    private static void init(){
+    static {
         FileInputStream input = null;
         try {
             input = new FileInputStream("conf/selenium.properties");
@@ -36,31 +32,19 @@ public class PropertyManager {
     }
 
     public static String getBrowserType() {
-        if (BROWSER_TYPE==null){
-            init();
-        }
         return BROWSER_TYPE;
     }
 
 
     public static String getBaseUrl() {
-        if (BASE_URL==null) {
-            init();
-        }
         return BASE_URL;
     }
 
     public static String getAdminUsername() {
-        if (ADMIN_USERNAME==null) {
-            init();
-        }
         return ADMIN_USERNAME;
     }
 
     public static String getAdminPassword() {
-        if (ADMIN_PASSWORD==null) {
-            init();
-        }
         return ADMIN_PASSWORD;
     }
 }
