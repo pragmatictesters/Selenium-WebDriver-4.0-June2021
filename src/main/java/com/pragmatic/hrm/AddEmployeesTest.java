@@ -2,7 +2,6 @@ package com.pragmatic.hrm;
 
 import com.github.javafaker.Faker;
 import com.pragmatic.selenium.support.Check;
-import com.pragmatic.selenium.support.UnexpectedCheckboxException;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
