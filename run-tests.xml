@@ -6,7 +6,7 @@
 
 
         <classes>
-<!--            <class name="com.pragmatic.hrm.LoginTest"/>-->
+            <class name="com.pragmatic.hrm.LoginTest"/>
             <class name="com.pragmatic.hrm.tests.LoginTest"/>
             <class name="com.pragmatic.hrm.tests.AddNewEmployeeTest"/>
         </classes>
