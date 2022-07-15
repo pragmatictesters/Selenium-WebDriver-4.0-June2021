@@ -4,14 +4,11 @@
 
     <test name="login-tests" >
 
-        <groups>
-            <run>
-                <include name="smoke"/>
-            </run>
-        </groups>
 
         <classes>
-            <class name="com.pragmatic.hrm.LoginTest"/>
+<!--            <class name="com.pragmatic.hrm.LoginTest"/>-->
+            <class name="com.pragmatic.hrm.tests.LoginTest"/>
+            <class name="com.pragmatic.hrm.tests.AddNewEmployeeTest"/>
         </classes>
     </test>
 </suite>
