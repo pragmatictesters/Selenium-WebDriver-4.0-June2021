@@ -6,7 +6,8 @@ public class RandomData {
 
     static Faker faker;
 
-    public RandomData(){
+
+    static {
         faker = new Faker();
     }
 
