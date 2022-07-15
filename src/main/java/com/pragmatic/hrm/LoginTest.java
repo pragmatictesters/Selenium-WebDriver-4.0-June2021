@@ -20,20 +20,20 @@ public class LoginTest {
 
     WebDriver driver;
 
-    @BeforeClass(alwaysRun = true)
+    @BeforeClass()
     public void beforeClass() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
 
     }
 
-    @AfterClass(alwaysRun = true)
+    @AfterClass()
     public void afterClass() {
         driver.close();
     }
 
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod()
     public void beforeMethod() {
         driver.get("http://hrm.pragmatictestlabs.com");
     }
