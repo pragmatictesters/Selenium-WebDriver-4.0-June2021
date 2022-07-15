@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeSuite;
 
 public class HRMBase {
 
-    public WebDriver driver;
+    public static WebDriver driver;
 
     @BeforeSuite
     public void beforeSuite(){
